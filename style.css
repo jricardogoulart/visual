@@ -1,13 +1,50 @@
-@charset "UTF-8";
-
-body{
-    background-image: url('Vector.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-  
+@font-face {
+    font-family: 'Pigarnos Neue';
+    src: url('./img/PIGARNOS\ NEUE\ Regular.otf') format('opentype');
+    /* Substitua o nome do arquivo conforme necessário */
+    font-weight: normal;
+    font-style: normal;
 }
 
-div{
-    height: 100%;
-    background-image: linear-gradient(45deg, #0D0D0D,#1C1240);
+body {
+    background-image: linear-gradient(45deg, #0D0D0D, #1C1240);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Adicionando overflow: hidden para ocultar a barra de rolagem */
+    color: #ffffff7c;
+    /* Adicionando cor padrão para o texto */
+}
+
+main img {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: filter 0.2s ease-in-out 0.2s;
+    filter: blur(10px);
+}
+
+main img:hover {
+    background: inherit;
+    filter: blur(5px);
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    /* Impede a quebra de linha */
+    overflow: hidden;
+    /* Oculta o texto que extrapolar o contêiner */
+    letter-spacing: 10px;
+    font-size: 72px;
+    text-transform: uppercase;
+    /* Ajuste conforme necessário */
+    font-family: Pigarnos Neue;
+    font-weight: 300;
 }
