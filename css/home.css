@@ -5,7 +5,9 @@
     margin: 0;
     font-family: 'SF Pro Display', sans-serif;
 }
-
+body{
+    background:url(./img/Vector.png); 
+}
 header{
     background-image: linear-gradient(45deg, #0D0D0D, #1C1240);
     height: 110px;
@@ -24,6 +26,8 @@ nav{
     height: 40px;
     border: 1px solid #dfdfdf1c;
     position: sticky;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 nav ul{
@@ -31,19 +35,22 @@ nav ul{
 }
 nav li{
 display: inline;
-padding:0px 10px 0px 10px ;
+padding: 0px 5px;
 }
 
 nav li>a{
     background-color: #dfdfdf1c;
     padding: 5px 15px ;
     text-decoration: none;
-    color: #fff;
+    color: #ffffffa1;
     border-radius: 5px;
+    letter-spacing: 1px;
+    
 }
 
 nav li>a:hover{
-    background-color: #ffffff9f;
+    background-color: #945affab;
+    color: #fff;
 }
 
 main{
