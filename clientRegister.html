@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar novo cliente</title>
+    <link rel="stylesheet" href="./css/cilentRegister.css">
+</head>
+
+<body>
+    <header>
+        <h1>Cadastro de Cliente</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Novo Cliente</h2>
+            <form>
+
+                <div class="box-input">
+                    <label for="clientName">Nome da Empresa/Cliente <span class="required-field">*</span></label>
+                    <input type="text" minlength="3" maxlength="30" id="clientName" name="clientName"
+                        placeholder="Digite o nome do seu cliente/empresa" required>
+                </div>
+
+                <div class="box-input">
+                    <label for="clientEmail">Email da Empresa/Cliente<span class="required-field">*</span></label>
+                    <input type="email" id="clientEmail" name="clientEmail" placeholder="cliente@email.com" required>
+                </div>
+
+                <div class="box-input">
+                    <label for="clientPhone">Celular da Empresa/Cliente<span class="required-field">*</span></label>
+                    <input type="tel" id="clientPhone" name="clientPhone" placeholder="(01) 2345-6789" required>
+                </div>
+
+                <div class="box-input">
+                    <label for="clientDoc">CNPJ/CPF da Empresa/Cliente<span class="required-field">*</span></label>
+                    <input type="text" id="clientDoc" name="clientDoc" placeholder="012.345.678-90" minlength="11"
+                        maxlength="14" required>
+                </div>
+
+                <h3>Endereço</h3>
+
+                <div class="box-input">
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep"maxlength="9" required>
+                </div>
+
+                <div class="box-input">
+                    <label for="rua">Rua:</label>
+                    <input type="text" id="rua" name="rua" disabled>
+                </div>
+
+                <div class="box-input">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro" disabled>
+                </div>
+
+                <div class="box-input">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" disabled>
+                </div>
+
+                <div class="box-input">
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" disabled>
+                </div>
+
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>2024 &copy; Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        document.getElementById('clientPhone').addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = x[1] ? '(' + x[1] : '';
+            if (x[2]) {
+                e.target.value += ') ' + x[2];
+                if (x[2].length === 5) {
+                    e.target.value += '-';
+                }
+            }
+            if (x[3]) {
+                e.target.value += '-' + x[3];
+            }
+        });
+
+        document.getElementById('clientDoc').addEventListener('input', function (e) {
+            var value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) { // CPF
+                value = value.replace(/(\d{3})(\d{1,3})?(\d{1,3})?(\d{1,2})?/, function (_regex, p1, p2, p3, p4) {
+                    var cpf = p1;
+                    if (p2) cpf += '.' + p2;
+                    if (p3) cpf += '.' + p3;
+                    if (p4) cpf += '-' + p4;
+                    return cpf;
+                });
+            } else { // CNPJ
+                value = value.replace(/^(\d{2})(\d{1,3})?(\d{1,3})?(\d{1,4})?(\d{1,2})?/, function (_regex, p1, p2, p3, p4, p5) {
+                    var cnpj = p1;
+                    if (p2) cnpj += '.' + p2;
+                    if (p3) cnpj += '.' + p3;
+                    if (p4) cnpj += '/' + p4;
+                    if (p5) cnpj += '-' + p5;
+                    return cnpj;
+                });
+            }
+            e.target.value = value;
+        });
+
+        document.getElementById('cep').addEventListener('blur', function (e) {
+            var cep = e.target.value.replace(/\D/g, '');
+            if (cep.length !== 8) {
+                alert("CEP inválido!");
+                return;
+            }
+
+            var url = 'https://viacep.com.br/ws/' + cep + '/json/';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.erro) {
+                        alert("CEP não encontrado!");
+                        return;
+                    }
+                    document.getElementById('rua').value = data.logradouro;
+                    document.getElementById('bairro').value = data.bairro;
+                    document.getElementById('cidade').value = data.localidade;
+                    document.getElementById('estado').value = data.uf;
+                })
+                .catch(error => {
+                    alert("Erro ao buscar o CEP!");
+                    console.error(error);
+                });
+        });
+
+        document.getElementById('cep').addEventListener('input', function (e) {
+            var valor = e.target.value;
+
+            // Remove caracteres que não sejam números
+            valor = valor.replace(/\D/g, '');
+
+            // Formata para o padrão CEP (#####-###)
+            if (valor.length > 5) {
+                valor = valor.replace(/^(\d{5})(\d)/, "$1-$2");
+            }
+
+            e.target.value = valor;
+        });
+    </script>
+</body>
+
+</html>
