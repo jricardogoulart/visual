@@ -8,13 +8,16 @@
 }
 
 main {
-    background-color: #353535;
+    background: url(../img/BACK.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
 
 
 header {
     background-image: linear-gradient(45deg, #0D0D0D, #1C1240);
-    height: 110px;
+    height: 100px;
 }
 
 header h1 {
@@ -32,7 +35,6 @@ header h1 {
     display: flex;
     background-color: #ffffff15;
     border-radius: 15px;
-
 }
 
 form {
@@ -41,7 +43,7 @@ form {
     text-align: center;
     width: fit-content;
     height: fit-content;
-    padding: 15px;
+    padding: 0px 10px 10px 10px;
     border-bottom: 2px solid #ffffff60;
 }
 
@@ -50,6 +52,7 @@ form {
 h2 {
     font-weight: bolder;
     color: #fff;
+    text-decoration: underline;
 }
 
 div.form-content {
@@ -70,14 +73,15 @@ div.form-content {
 }
 
 .optional {
+    margin-top:5px;
     background-color: #5d4f6693;
     border-radius: 10px;
     justify-content: space-between;
 }
 
 .optional label {
-    padding: 10px;
-    font-size: 1.5em;
+    padding: 5px;
+    font-size: 1.3em;
 }
 
 .optional li {
@@ -86,7 +90,7 @@ div.form-content {
 }
 
 .box-input {
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,27 +112,33 @@ label {
 }
 
 div#save>input {
-    margin-top: 15px;
+    margin-top: 8px;
     cursor: pointer;
     font: bold 2em 'SF Pro Display', sans-serif;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    transition: 500ms ease-in-out;
+    padding: 8px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: 200ms ease-in-out;
 }
 
-div#save>input :hover {
-    color
+div#save>input:hover {
+    background-color: rgb(129, 83, 255);
+    color:#fff;
+    border: 2px solid #fff;
 }
 
-
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 
 footer {
     margin: 0 auto;
-    padding: 15px;
+    padding: 7px;
     text-align: center;
-    background-color: #0D0D0D;
+    background-image: linear-gradient(45deg, #0D0D0D, #1C1240);
     color: #fff;
     font-weight: lighter;
     letter-spacing: 1px;
