@@ -7,7 +7,7 @@
     font-family: 'SF Pro Display', sans-serif;
 }
 
-main{
+main {
     height: 1000px;
 }
 
@@ -28,32 +28,51 @@ header h1 {
     padding: 35px 0px;
 }
 
-div.container{
+form {
+    background-color: red;
     margin: auto;
-    background-color: green;
-    height: 390px;
-    width: 450px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
 }
 
-.box-input{
+.form-content{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    background-color: green;
+    height: fit-content;
+    width: fit-content;
+}
+
+.box-input {
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(0, 70, 70);
 }
-.box-input input{
+
+#typeService{
+    background-color: cadetblue;
+    position: relative;
+}
+
+#typeService input{
+    
+}
+
+.box-input input {
     margin-top: 10px;
     height: 30px;
     width: 250px;
     text-align: center;
 }
 
-.box-input label{
-   font-size: 1.2em;
-   color:#fff;
-   
+.box-input label {
+    font-size: 1.2em;
+    color: #fff;
+
 }
 
 footer {
@@ -64,5 +83,5 @@ footer {
     color: #fff;
     font-weight: lighter;
     letter-spacing: 1px;
-    
+
 }
