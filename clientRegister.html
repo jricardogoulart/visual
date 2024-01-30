@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar novo cliente</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="./css/cilentRegister.css">
 </head>
 
@@ -16,69 +15,86 @@
     <main>
         <form>
 
-            <div class="form-content">
-                <h2>Novo Cliente</h2>
-                <div class="box-input">
-                    <label for="clientName">Nome da Empresa/Cliente <span class="required-field">*</span></label>
-                    <input type="text" minlength="3" maxlength="30" id="clientName" name="clientName"
-                        placeholder="Digite o nome do seu cliente" required>
+            <div class="background">
+                <div class="form-content">
+                    <h2>Novo Cliente</h2>
+                    <div class="box-input">
+                        <label for="clientName">Nome<span class="required-field"> *</span></label>
+                        <input type="text" minlength="3" maxlength="30" id="clientName" name="clientName"
+                            placeholder="Digite o nome do seu cliente" required>
+                    </div>
+                    <div class="box-input">
+                        <label for="clientEmail">Email<span class="required-field"> *</span></label>
+                        <input type="email" id="clientEmail" name="clientEmail" placeholder=" Ex. cliente@email.com" required>
+                    </div>
+                    <div class="box-input">
+                        <label for="clientPhone">Celular<span class="required-field"> *</span></label>
+                        <input type="tel" id="clientPhone" name="clientPhone" placeholder="Ex. (01) 2345-6789" required>
+                    </div>
+                    <div class="box-input">
+                        <label for="clientDoc">CNPJ/CPF <span class="required-field"> *</span></label>
+                        <input type="text" id="clientDoc" name="clientDoc" placeholder="Ex. 012.345.678-90" minlength="11"
+                            maxlength="14" required>
+                    </div>
+                
+                    
+                    <div class="optional">
+                        <h2>Tipo de Serviço</h2>
+                        <ul type="none">
+                            <li>
+                                <input type="checkbox" id="export" name="typeService[]" value="export">
+                                <label for="export">Exportação</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="internalMarket" name="typeService[]" value="internalMarket">
+                                <label for="internalMarket">Mercado Interno</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="personal" name="typeService[]" value="personal">
+                                <label for="personal">Individual</label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="box-input">
-                    <label for="clientEmail">Email da Empresa/Cliente<span class="required-field">*</span></label>
-                    <input type="email" id="clientEmail" name="clientEmail" placeholder=" Ex. cliente@email.com" required>
+                <div class="line"></div>
+                <div class="form-content" id="location">
+                    <h2>Endereço</h2>
+                    <div class="box-input">
+                        <label for="cep">Digite o CEP</label>
+                        <input type="text" id="cep" name="cep" maxlength="9" required>
+                    </div>
+                    <div class="box-input">
+                        <label for="street">Rua</label>
+                        <input type="text" id="street" name="street" disabled>
+                    </div>
+                    <div class="box-input">
+                        <label for="district">Bairro</label>
+                        <input type="text" id="district" name="district" disabled>
+                    </div>
+                    <div class="box-input">
+                        <label for="city">Cidade</label>
+                        <input type="text" id="city" name="city" disabled>
+                    </div>
+                    <div class="box-input">
+                        <label for="state">Estado</label>
+                        <input type="text" id="state" name="state" disabled>
+                    </div>
+                    <div class="box-input">
+                        <label for="houseNumber">Número</label>
+                        <input type="number" id="houseNumber" name="houseNumber" required>
+                    </div>
                 </div>
-                <div class="box-input">
-                    <label for="clientPhone">Celular da Empresa/Cliente<span class="required-field">*</span></label>
-                    <input type="tel" id="clientPhone" name="clientPhone" placeholder="Ex. (01) 2345-6789" required>
-                </div>
-                <div class="box-input">
-                    <label for="clientDoc">CNPJ/CPF da Empresa/Cliente<span class="required-field">*</span></label>
-                    <input type="text" id="clientDoc" name="clientDoc" placeholder="Ex. 012.345.678-90" minlength="11"
-                        maxlength="14" required>
-                </div>
-                <div class="box-input" id="typeService">
-                    <label for="typeClient">Tipo do Serviço</label>
-                    <input type="checkbox" name="typeClient" id="typeClient"><label for="typeClient">Exportação</label>
-                    <input type="checkbox" name="typeClient" id="typeClient"><label for="typeClient">Mercado Interno</label>
-                    <input type="checkbox" name="typeClient" id="typeClient"><label for="typeClient">Individual</label>
-                </div>
-
+                
+                
             </div>
-
-            <div class="form-content" id="location">
-                <h2>Endereço</h2>
-                <div class="box-input">
-                    <label for="cep">Digite o CEP</label>
-                    <input type="text" id="cep" name="cep" maxlength="9" required>
-                </div>
-                <div class="box-input">
-                    <label for="street">Rua</label>
-                    <input type="text" id="street" name="street" disabled>
-                </div>
-                <div class="box-input">
-                    <label for="district">Bairro</label>
-                    <input type="text" id="district" name="district" disabled>
-                </div>
-                <div class="box-input">
-                    <label for="city">Cidade</label>
-                    <input type="text" id="city" name="city" disabled>
-                </div>
-                <div class="box-input">
-                    <label for="state">Estado</label>
-                    <input type="text" id="state" name="state" disabled>
-                </div>
-                <div class="box-input">
-                    <label for="houseNumber">Número</label>
-                    <input type="number" id="houseNumber" name="houseNumber" required>
-                </div>
-            </div>
-
+            <div id="save"><input type="submit" value="Cadastrar"></div>
         </form>
 
     </main>
     <footer>
         <p>2024 &copy; Todos os direitos reservados.</p>
     </footer>
+    <script src="./script.js"></script>
 </body>
 
 </html>
