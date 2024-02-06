@@ -14,28 +14,25 @@ document.getElementById('clientPhone').addEventListener('input', function (e) {
 });
 
 // Formatando CPF/CNPJ  XXX.XXX.XXX-XX e/ouXX. XXX. XXX/0001-XX
-document.getElementById('clientDoc').addEventListener('input', function (e) {
-    var value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 11) { // CPF
-        value = value.replace(/(\d{3})(\d{1,3})?(\d{1,3})?(\d{1,2})?/, function (_regex, p1, p2, p3, p4) {
-            var cpf = p1;
-            if (p2) cpf += '.' + p2;
-            if (p3) cpf += '.' + p3;
-            if (p4) cpf += '-' + p4;
-            return cpf;
+document.getElementById('clientDoc').addEventListener('input', function(e) {
+    var value = e.target.value.replace(/\D/g, ''); // Remove todos os caracteres não-dígitos
+
+    if (value.length <= 11) {
+        // Formatação para CPF
+        value = value.replace(/(\d{3})(\d{1,3})?(\d{1,3})?(\d{1,2})?/, function(_regex, p1, p2, p3, p4) {
+            return [p1, p2, p3].filter(Boolean).join('.') + (p4 ? '-' + p4 : '');
         });
-    } else { // CNPJ
-        value = value.replace(/^(\d{2})(\d{1,3})?(\d{1,3})?(\d{1,4})?(\d{1,2})?/, function (_regex, p1, p2, p3, p4, p5) {
-            var cnpj = p1;
-            if (p2) cnpj += '.' + p2;
-            if (p3) cnpj += '.' + p3;
-            if (p4) cnpj += '/' + p4;
-            if (p5) cnpj += '-' + p5;
-            return cnpj;
+    } else if (value.length > 11 && value.length <= 14) {
+        // Formatação para CNPJ
+        value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, function(_regex, p1, p2, p3, p4, p5) {
+            return `${p1}.${p2}.${p3}/${p4}-${p5}`;
         });
     }
-    e.target.value = value;
+    
+    e.target.value = value; // Atualiza o valor do input
 });
+
+
 
 // Utilizando a API do VIA CEP para Já Adicionar o CEP no Cadastro
 document.getElementById('cep').addEventListener('blur', function (e) {
@@ -77,4 +74,44 @@ document.getElementById('cep').addEventListener('input', function (e) {
     }
 
     e.target.value = valor;
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona todos os inputs que precisam ser validados
+    const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"]');
+
+    // Função para verificar a validade e aplicar/remover a classe 'valid'
+    function validateInput(input) {
+        if (input.checkValidity()) {
+            input.classList.add('valid');
+            input.classList.remove('invalid'); // Se você decidir usar uma classe para inválido
+        } else {
+            input.classList.remove('valid');
+            input.classList.add('invalid'); // Se você decidir usar uma classe para inválido
+        }
+    }
+
+    // Adiciona o evento de 'blur' a cada input para validar individualmente
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateInput(this);
+        });
+    });
+
+    // Adiciona um listener ao formulário para validar todos os campos no submit
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        let formIsValid = true;
+        inputs.forEach(input => {
+            validateInput(input);
+            if (!input.checkValidity()) {
+                formIsValid = false;
+            }
+        });
+        
+        // Se o formulário não for válido, previne o envio
+        if (!formIsValid) {
+            event.preventDefault();
+        }
+    });
 });

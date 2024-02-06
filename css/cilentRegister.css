@@ -38,21 +38,22 @@ header h1 {
 }
 
 form {
-    background-image: linear-gradient(to top, #0d0d0d, rgba(21, 16, 75, 0.459));
+    background-image: linear-gradient(to top, #0d0d0d, rgba(21, 16, 75, 0.479));
     margin: auto;
     text-align: center;
     width: fit-content;
     height: fit-content;
-    padding: 0px 10px 10px 10px;
+    padding:10px;
     border-bottom: 2px solid #ffffff60;
 }
 
 
 
+
 h2 {
-    font-weight: bolder;
     color: #fff;
-    text-decoration: underline;
+    font-family: 'PIGARNOS NEUE', sans-serif;
+    font-weight: normal;
 }
 
 div.form-content {
@@ -62,6 +63,7 @@ div.form-content {
     border-radius: 10px;
 
 }
+
 
 .line {
     background-color: #ffffff44;
@@ -96,19 +98,50 @@ div.form-content {
     align-items: center;
 }
 
+.box-input input:focus {
+    border: 2px solid #f8f8f8; /* Cor azul claro */
+    outline: none;
+    transition: 500ms ease-in-out;
+}
+
+.box-input input:valid {
+    border: 2px solid #00884f; /* Cor azul claro para inputs válidos */
+}
+
+.box-input input:invalid {
+    border: 2px solid #c869ff; /* Cor vermelha para inputs inválidos, opcional */
+    transition: 500ms ease-in-out
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: pinter;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
 .box-input input {
     margin-top: 10px;
     height: 30px;
     width: 250px;
     text-align: center;
     border: none;
-    background-color: #ffffff;
     border-radius: 10px;
-    color: #0d0d0d;
+    color: #020202;
+    letter-spacing: 0.6px;
+}
+
+.box-input input:disabled{
+    background-color: #ffffff4d;
+    color: #fff;
 }
 
 label {
     color: #ffffff;
+    letter-spacing: 1px;
 }
 
 div#save>input {
@@ -140,11 +173,11 @@ input[type="number"]::-webkit-outer-spin-button {
 *::-webkit-scrollbar-track {
     width: 12px;
     box-shadow: inset 0 0 .3rem #00000050;
-    background-color: #fff;
+    background-color: #1f1e1e;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #149ddd;
+    background-color: #ffffff;
 }
 
 

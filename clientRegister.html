@@ -20,26 +20,26 @@
                     <h2>Novo Cliente</h2>
                     <div class="box-input">
                         <label for="clientName">Nome<span class="required-field"> *</span></label>
-                        <input type="text" minlength="3" maxlength="30" id="clientName" name="clientName"
+                        <input class="valid" type="text" minlength="3" maxlength="30" id="clientName" name="clientName"
                             placeholder="Digite o nome do seu cliente" required>
                     </div>
                     <div class="box-input">
                         <label for="clientEmail">Email<span class="required-field"> *</span></label>
-                        <input type="email" id="clientEmail" name="clientEmail" placeholder=" Ex. cliente@email.com" required>
+                        <input class="valid" type="email" id="clientEmail" name="clientEmail" placeholder=" Ex. cliente@email.com" required>
                     </div>
                     <div class="box-input">
                         <label for="clientPhone">Celular<span class="required-field"> *</span></label>
-                        <input type="tel" id="clientPhone" name="clientPhone" placeholder="Ex. (01) 2345-6789" required>
+                        <input class="valid" type="tel" id="clientPhone" name="clientPhone" placeholder="Ex. (01) 2345-6789" required>
                     </div>
                     <div class="box-input">
                         <label for="clientDoc">CNPJ/CPF <span class="required-field"> *</span></label>
-                        <input type="text" id="clientDoc" name="clientDoc" placeholder="Ex. 012.345.678-90" minlength="11"
+                        <input class="valid" type="text" id="clientDoc" name="clientDoc" placeholder="Ex. 012.345.678-90" minlength="11"
                             maxlength="14" required>
                     </div>
                 
                     
                     <div class="optional">
-                        <h2>Tipo de Serviço</h2>
+                        <h2>Categoria</h2>
                         <ul type="none">
                             <li>
                                 <input type="checkbox" id="export" name="typeService[]" value="export">
@@ -58,10 +58,10 @@
                 </div>
                 <div class="line"></div>
                 <div class="form-content" id="location">
-                    <h2>Endereço</h2>
+                    <h2>Local</h2>
                     <div class="box-input">
                         <label for="cep">Digite o CEP<span class="required-field"> *</span></label>
-                        <input type="text" id="cep" name="cep" maxlength="9" required>
+                        <input class="valid" type="text" id="cep" name="cep" maxlength="9" required>
                     </div>
                     <div class="box-input">
                         <label for="street">Rua</label>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="box-input">
                         <label for="houseNumber">Número<span class="required-field"> *</span></label>
-                        <input type="number" id="houseNumber" name="houseNumber" required>
+                        <input class="valid" type="number" id="houseNumber" name="houseNumber" required>
                     </div>
                 </div>
                 
