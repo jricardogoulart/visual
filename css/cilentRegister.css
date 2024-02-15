@@ -48,8 +48,6 @@ form {
 }
 
 
-
-
 h2 {
     color: #fff;
     font-family: 'PIGARNOS NEUE', sans-serif;
@@ -105,17 +103,18 @@ div.form-content {
 }
 
 .box-input input:valid {
-    border: 2px solid #00884f; /* Cor azul claro para inputs válidos */
+    border: 2px solid #00884f; /* Cor verde claro para inputs válidos */
 }
 
+
 .box-input input:invalid {
-    border: 2px solid #c869ff; /* Cor vermelha para inputs inválidos, opcional */
+    border: 2px solid #c869ff; /* Cor roxa para inputs inválidos, opcional */
     transition: 500ms ease-in-out
 }
 
 input[type="checkbox" i] {
     background-color: initial;
-    cursor: pinter;
+    cursor: pointer;
     appearance: auto;
     box-sizing: border-box;
     margin: 3px 3px 3px 4px;
@@ -189,5 +188,4 @@ footer {
     color: #fff;
     font-weight: lighter;
     letter-spacing: 1px;
-
 }
