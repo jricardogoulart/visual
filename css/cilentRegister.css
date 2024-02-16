@@ -19,7 +19,7 @@ main {
 
 header {
     background-image: linear-gradient(45deg, #0D0D0D, #1C1240);
-    height: 100px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,9 +29,9 @@ header h1 {
     font-family: 'PIGARNOS NEUE', sans-serif;
     color: #fff;
     text-transform: uppercase;
-    text-align: center;
     letter-spacing: 10px;
     margin: 0px;
+    font-size: 32px;
 }
 
 .background {
@@ -54,6 +54,9 @@ h2 {
     color: #fff;
     font-family: 'PIGARNOS NEUE', sans-serif;
     font-weight: normal;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin: 5px 0px;
 }
 
 div.form-content {
@@ -74,7 +77,6 @@ div.form-content {
 }
 
 .optional {
-    margin-top: 10px;
     background-color: #5d4f6693;
     border-radius: 10px;
     justify-content: space-between;
@@ -88,7 +90,9 @@ div.form-content {
 .optional li {
     display: flex;
 }
-
+.optional ul{
+    margin: 0;
+}
 .box-input {
     padding: 5px;
     display: flex;
@@ -115,13 +119,9 @@ div.form-content {
 }
 
 input[type="checkbox" i] {
-    background-color: initial;
     cursor: pointer;
-    appearance: auto;
     box-sizing: border-box;
     margin: 3px 3px 3px 4px;
-    padding: initial;
-    border: initial;
 }
 
 .box-input input {
@@ -152,11 +152,11 @@ div#save>input {
     padding: 8px;
     border: 2px solid transparent;
     border-radius: 10px;
-    transition: 200ms ease-in-out;
+    transition: 600ms ease-in-out;
 }
 
 div#save>input:hover {
-    background-color: rgb(129, 83, 255);
+    background-image: linear-gradient(185deg, #0D0D0D, #1C1240);
     color: #fff;
     border: 2px solid #fff;
 }
